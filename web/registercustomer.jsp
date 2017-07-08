@@ -1,7 +1,9 @@
 <%-- 
     Document   : RegisterCustomer
     Created on : 27-Jun-2017, 19:04:33
-    Author     : james
+    Alba Airways application M813-TMA02-RegisterCustomer
+    https://github.com/jc184/M813-TMA02-RegCustomer
+    @author james chalmers Open University F6418079
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,7 +15,7 @@
         <script type="text/javascript" src="scripts/custvalidation.js"></script>
         <script type="text/javascript" src="scripts/datepickercontrol.js"></script>
         <link type="text/css" rel="stylesheet" href="styles/datepickercontrol.css"/>
-        
+
     </head>
     <body>
         <!-- UNCOMMENT HTML WITH THIS -->
@@ -66,4 +68,8 @@
                             <td><input type="submit" value="add" name="submit" style="width:75px" onclick="validate(this.form);return false;" /><br /></td>
                         </tr>
                     </table>
-                </form></div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

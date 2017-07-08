@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.Serializable;
@@ -21,8 +16,10 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * Alba Airways application M813-TMA02-RegisterCustomer
+ * https://github.com/jc184/M813-TMA02-RegCustomer
  *
- * @author james chalmers F6418079
+ * @author james chalmers Open University F6418079
  *
  */
 @Entity
@@ -59,24 +56,35 @@ public class Customer extends Person implements Serializable {
     @Column(name = "LoginPassword")
     private String loginPassword;
 
+    /*
+     * Empty Constructor
+     */
     public Customer() {
     }
 
+    /*
+     * 
+     */
     public Customer(Integer customerId) {
         this.customerId = customerId;
     }
 
+    /*
+     * Full Constructor. Allows Customer instances to be created.
+    Postcondition: 
+    -- an instance of Customer is created, and it is displayed in albaregconfirmation.jsp
+    -- which is a sub class of Person
+    -- which is linked to Booking
+    -- and which is linked to Payment
+    -- and which is linked to Passenger
+    -- and the Customer’s details are added to the applications database
+    -- which enables the customer to login and make bookings
+     */
     public Customer(Integer customerId, String title, String firstName, String surname, String mobileNo, String homePhoneNumber, String emailAddress, String loginName, String loginPassword, Date dateOfBirth) {
+        super(title, firstName, surname, mobileNo, homePhoneNumber, emailAddress, dateOfBirth);
         this.customerId = customerId;
-        this.title = title;
-        this.firstName = firstName;
-        this.surname = surname;
-        this.mobileNo = mobileNo;
-        this.homePhoneNumber = homePhoneNumber;
-        this.emailAddress = emailAddress;
         this.loginName = loginName;
         this.loginPassword = loginPassword;
-        this.dateOfBirth = dateOfBirth;
     }
 
     public Integer getCustomerId() {
@@ -85,54 +93,6 @@ public class Customer extends Person implements Serializable {
 
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getMobileNo() {
-        return mobileNo;
-    }
-
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-    }
-
-    public String getHomePhoneNumber() {
-        return homePhoneNumber;
-    }
-
-    public void setHomePhoneNumber(String homePhoneNumber) {
-        this.homePhoneNumber = homePhoneNumber;
-    }
-
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
     }
 
     public String getLoginName() {
@@ -149,14 +109,6 @@ public class Customer extends Person implements Serializable {
 
     public void setLoginPassword(String loginPassword) {
         this.loginPassword = loginPassword;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
     }
 
     @Override

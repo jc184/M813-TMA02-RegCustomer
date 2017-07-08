@@ -1,7 +1,9 @@
 <%-- 
     Document   : albaregconfirmation
     Created on : 27-Jun-2017, 20:12:27
-    Author     : james
+    Alba Airways application M813-TMA02-RegisterCustomer
+    https://github.com/jc184/M813-TMA02-RegCustomer
+    @author james chalmers Open University F6418079
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

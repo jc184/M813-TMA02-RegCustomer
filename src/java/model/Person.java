@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.util.Date;
@@ -14,48 +9,116 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
+ * Alba Airways application M813-TMA02-RegisterCustomer
+ * https://github.com/jc184/M813-TMA02-RegCustomer
  *
- * @author james
+ * @author james chalmers Open University F6418079
  */
-public abstract class Person {
-    
+public class Person {
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "Title")
-    protected String title;
+    private String title;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "FirstName")
-    protected String firstName;
+    private String firstName;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "Surname")
-    protected String surname;
+    private String surname;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 12)
     @Column(name = "MobileNo")
-    protected String mobileNo;
+    private String mobileNo;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 12)
     @Column(name = "HomePhoneNumber")
-    protected String homePhoneNumber;
+    private String homePhoneNumber;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "EmailAddress")
-    protected String emailAddress;
+    private String emailAddress;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DateOfBirth")
     @Temporal(value = TemporalType.DATE)
-    protected Date dateOfBirth;
+    private Date dateOfBirth;
 
     public Person() {
     }
-    
+
+    public Person(String title, String firstName, String surname, String mobileNo, String homePhoneNumber, String emailAddress, Date dateOfBirth) {
+        this.title = title;
+        this.firstName = firstName;
+        this.surname = surname;
+        this.mobileNo = mobileNo;
+        this.homePhoneNumber = homePhoneNumber;
+        this.emailAddress = emailAddress;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getHomePhoneNumber() {
+        return homePhoneNumber;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setHomePhoneNumber(String homePhoneNumber) {
+        this.homePhoneNumber = homePhoneNumber;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
 }

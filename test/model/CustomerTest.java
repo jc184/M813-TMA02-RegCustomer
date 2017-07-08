@@ -1,17 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author james
+ * Alba Airways application M813-TMA02-RegisterCustomer
+ * https://github.com/jc184/M813-TMA02-RegCustomer
+ * @author james chalmers Open University F6418079
+ * Test Case TC1
  */
 public class CustomerTest {
     
@@ -20,11 +20,13 @@ public class CustomerTest {
 
     /**
      * Test of getCustomerId method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetCustomerId() {
+    public void testGetCustomerId() throws ParseException {
         System.out.println("getCustomerId");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         Integer expResult = 4;
         Integer result = instance.getCustomerId();
         assertEquals(expResult, result);
@@ -33,11 +35,13 @@ public class CustomerTest {
 
     /**
      * Test of getTitle method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetTitle() {
+    public void testGetTitle() throws ParseException {
         System.out.println("getTitle");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "mr";
         String result = instance.getTitle();
         assertEquals(expResult, result);
@@ -46,11 +50,13 @@ public class CustomerTest {
 
     /**
      * Test of getFirstName method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetFirstName() {
+    public void testGetFirstName() throws ParseException {
         System.out.println("getFirstName");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "james";
         String result = instance.getFirstName();
         assertEquals(expResult, result);
@@ -59,11 +65,13 @@ public class CustomerTest {
 
     /**
      * Test of getSurname method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetSurname() {
+    public void testGetSurname() throws ParseException {
         System.out.println("getSurname");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "chalmers";
         String result = instance.getSurname();
         assertEquals(expResult, result);
@@ -72,11 +80,13 @@ public class CustomerTest {
 
     /**
      * Test of getMobileNo method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetMobileNo() {
+    public void testGetMobileNo() throws ParseException {
         System.out.println("getMobileNo");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "07552605450";
         String result = instance.getMobileNo();
         assertEquals(expResult, result);
@@ -85,11 +95,13 @@ public class CustomerTest {
 
     /**
      * Test of getHomePhoneNumber method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetHomePhoneNumber() {
+    public void testGetHomePhoneNumber() throws ParseException {
         System.out.println("getHomePhoneNumber");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "01343547869";
         String result = instance.getHomePhoneNumber();
         assertEquals(expResult, result);
@@ -98,11 +110,13 @@ public class CustomerTest {
 
     /**
      * Test of getEmailAddress method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetEmailAddress() {
+    public void testGetEmailAddress() throws ParseException {
         System.out.println("getEmailAddress");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "james.chalmers184@gmail.com";
         String result = instance.getEmailAddress();
         assertEquals(expResult, result);
@@ -111,11 +125,13 @@ public class CustomerTest {
 
     /**
      * Test of getLoginName method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetLoginName() {
+    public void testGetLoginName() throws ParseException {
         System.out.println("getLoginName");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "jc184";
         String result = instance.getLoginName();
         assertEquals(expResult, result);
@@ -124,11 +140,13 @@ public class CustomerTest {
 
     /**
      * Test of getLoginPassword method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetLoginPassword() {
+    public void testGetLoginPassword() throws ParseException {
         System.out.println("getLoginPassword");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
         String expResult = "1Acheilidh1";
         String result = instance.getLoginPassword();
         assertEquals(expResult, result);
@@ -137,12 +155,14 @@ public class CustomerTest {
 
     /**
      * Test of getDateOfBirth method, of class Customer.
+     * @throws java.text.ParseException
      */
     @Test
-    public void testGetDateOfBirth() {
+    public void testGetDateOfBirth() throws ParseException {
         System.out.println("getDateOfBirth");
-        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", null);
-        Date expResult = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Customer instance = new Customer(4, "mr", "james", "chalmers", "07552605450", "01343547869", "james.chalmers184@gmail.com", "jc184", "1Acheilidh1", sdf.parse("1966-04-03"));
+        Date expResult = sdf.parse("1966-04-03");
         Date result = instance.getDateOfBirth();
         assertEquals(expResult, result);
     }
