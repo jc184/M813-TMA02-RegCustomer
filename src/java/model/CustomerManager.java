@@ -1,6 +1,6 @@
 package model;
 
-import DAO.CustomerDataStore;
+import model.DAO.CustomerDataStore;
 import java.util.Date;
 
 /**

@@ -12,11 +12,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CustomerManager;
+import model.CustomerFacade;
 
 /**
  * Alba Airways application M813-TMA02-RegisterCustomer
- * https://github.com/jc184/M813-TMA02-RegCustomer
+ * https://github.com/jc184/M813-TMA02-RegCustomer Implementing the Facade
+ * Pattern
  *
  * @author james chalmers Open University F6418079
  */
@@ -25,14 +26,16 @@ public class CustomerServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    CustomerManager customerManager;
+    //CustomerManager customerManager;
+    CustomerFacade customerFacade;
 
     /*
-     * Creates a new instance of CustomerManager
+     * Creates a new instance of CustomerFacade
      */
     @Override
     public void init() throws ServletException {
-        customerManager = new CustomerManager();
+        //customerManager = new CustomerManager();
+        customerFacade = new CustomerFacade();
     }
 
     /**
@@ -67,17 +70,16 @@ public class CustomerServlet extends HttpServlet {
                 String regex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
                 String msg;
                 if (title.equalsIgnoreCase("") || firstName.equalsIgnoreCase("") || surname.equalsIgnoreCase("") || mobileNo.equalsIgnoreCase("") || homePhoneNumber.equalsIgnoreCase("") || emailAddress.equalsIgnoreCase("") || !emailAddress.matches(regex) || loginName.equalsIgnoreCase("") || loginPassword.equalsIgnoreCase("") || dateOfBirth.equalsIgnoreCase("")) {
-                    msg = "Sorry, but you entered your details incorrectly. Click on the Back button in your browser and re-enter your details..";
-                        request.setAttribute("msg", msg);
+                    msg = "Sorry, but you entered your details incorrectly. Click on the Back button in your browser and re-enter your details.";
+                    request.setAttribute("msg", msg);
                     url = "/albavalidation.jsp";
-                } 
-                else if (customerManager.validateCustomer(loginName, loginPassword, emailAddress)) {
+                } else if (customerFacade.customerManager.validateCustomer(loginName, loginPassword, emailAddress)) {
                     msg = "A customer with those details already exists. Please re-enter or login with your username and password.";
-                        request.setAttribute("msg", msg);
+                    request.setAttribute("msg", msg);
                     url = "/customerexists.jsp";
                 } else {
-                    customerManager.addCustomer(title, firstName, surname, mobileNo, homePhoneNumber, emailAddress, loginName, loginPassword, sdfDateOfBirth);
-                    int customerId = customerManager.getCustomerIdByAdd(loginName, loginPassword);
+                    customerFacade.customerManager.addCustomer(title, firstName, surname, mobileNo, homePhoneNumber, emailAddress, loginName, loginPassword, sdfDateOfBirth);
+                    int customerId = customerFacade.customerManager.getCustomerIdByAdd(loginName, loginPassword);
                     request.setAttribute("customerId", customerId);
                     url = "/albaregconfirmation.jsp";
                 }
