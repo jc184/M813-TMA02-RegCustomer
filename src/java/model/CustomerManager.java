@@ -1,27 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-import DAO.CustomerDataStore;
+import model.DAO.CustomerDataStore;
 import java.util.Date;
 
 /**
+ * Alba Airways application M813-TMA02-RegisterCustomer
+ * https://github.com/jc184/M813-TMA02-RegCustomer
  *
- * @author james
+ * @author james chalmers Open University F6418079
  */
 public class CustomerManager {
 
     CustomerDataStore customerStore;
 
+    /* 
+     * Constructor for CustomerManager. Initialises a new CustomerDataStore
+     */
     public CustomerManager() {
         customerStore = new CustomerDataStore();
     }
 
     /* 
-     *
+     * This method communicates with customerStore to create a new Customer instance, and creates a record of it in the applications database
      */
     public void addCustomer(String title, String firstName, String surname, String mobileNo, String homePhoneNumber, String emailAddress, String loginName, String loginPassword, Date dateOfBirth) {
         for (int newId = 1; newId < Integer.MAX_VALUE; newId++) {
@@ -33,6 +33,9 @@ public class CustomerManager {
         }
     }
 
+    /* 
+     * This method is needed to retrieve customerId from customerStore.
+     */
     public int getCustomerIdByAdd(String loginName, String loginPassword) {
         int customerId = 0;
         for (Customer customer : customerStore.getAllRecords()) {
@@ -43,4 +46,15 @@ public class CustomerManager {
         return customerId;
     }
 
+    /* 
+     * This method is needed to verify if a customer already exists.
+     */
+    public boolean validateCustomer(String loginName, String loginPassword, String emailAddress) {
+        for (Customer customer : customerStore.getAllRecords()) {
+            if (customer.getLoginName().equals(loginName) && (customer.getLoginPassword().equals(loginPassword)) || (customer.getEmailAddress().equals(emailAddress))) {
+                return true;
+            } 
+        }
+        return false;
+    }
 }

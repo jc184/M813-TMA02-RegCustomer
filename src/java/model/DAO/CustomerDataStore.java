@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package DAO;
+
+package model.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,11 +11,16 @@ import java.util.List;
 import model.Customer;
 
 /**
- *
- * @author james chalmers F6418079
+ * Alba Airways application M813-TMA02-RegisterCustomer
+ * https://github.com/jc184/M813-TMA02-RegCustomer
+ * @author james chalmers Open University F6418079
+ * 
  */
 public class CustomerDataStore {
 
+    /*
+     * 
+     */
     public void createRecord(Customer customer) {
 
         Connection connection = getConnection();
@@ -53,6 +54,9 @@ public class CustomerDataStore {
         }
     }
 
+    /*
+     * 
+     */
     private Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -74,6 +78,9 @@ public class CustomerDataStore {
         return (connection);
     }
 
+    /*
+     * 
+     */
     public Customer getRecord(int id) {
         Customer customer = null;
         Connection connection = getConnection();
@@ -107,6 +114,9 @@ public class CustomerDataStore {
         return (customer);
     }
 
+    /*
+     * 
+     */
     public List<Customer> getAllRecords() {
 
         Connection connection = getConnection();

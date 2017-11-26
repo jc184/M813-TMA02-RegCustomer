@@ -1,5 +1,5 @@
 <%-- 
-    Document   : albavalidation
+    Document   : customerexists.jsp
     Created on : 27-Jun-2017, 20:11:48
     Alba Airways application M813-TMA02-RegisterCustomer
     https://github.com/jc184/M813-TMA02-RegCustomer
